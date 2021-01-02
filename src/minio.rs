@@ -84,6 +84,7 @@ impl ConnClient {
     }
 }
 
+#[derive(Serialize, Deserialize, Debug, Clone, Default)]
 pub struct Client {
     server: Uri,
     region: Region,
