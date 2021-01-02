@@ -143,8 +143,8 @@ fn string_to_sign(ts: &Tm, scope: &str, canonical_request: &str) -> String {
     .join("\n")
 }
 
-fn hmac_sha256(msg: &str, key: &[u8]) -> hmac::Signature {
-    let key = hmac::SigningKey::new(&digest::SHA256, key);
+fn hmac_sha256(msg: &str, key: &[u8]) -> hmac::Tag {
+    let key = hmac::Key::new(hmac::HMAC_SHA256, key);
     hmac::sign(&key, msg.as_bytes())
 }
 
